@@ -12,7 +12,7 @@ namespace WpfApp1
     {
         private static string abc_ru = "абвгдеёжзийклмнопрстуфхцчшщъыьэюя";
 
-        public static string Ceasar(string key, string code)
+        public static string En_Ceasar(string key, string code)
         {
             if (!int.TryParse(key, out int int_key))
                 return null;
@@ -57,15 +57,6 @@ namespace WpfApp1
             }
 
             return result;
-        }
-
-
-        public static string vibor(string key, string code, bool vibor)
-        {
-            if (vibor)
-               return Ceasar(key, code);
-            else
-                return De_Ceaser(key, code);
         }
     }
 }

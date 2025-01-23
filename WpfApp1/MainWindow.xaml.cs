@@ -18,7 +18,6 @@ namespace WpfApp1
     public partial class MainWindow : Window
     {
 
-        bool g;
         EncryptionManager encryptionManager;
         public MainWindow()
         {
@@ -33,6 +32,7 @@ namespace WpfApp1
         {
             ComboBoxItem selectedItem = (ComboBoxItem)CipherComboBox.SelectedItem;
             string method = selectedItem?.Content.ToString();
+
             string result = encryptionManager.ChoosingEncryption(method, KeyTextBox.Text, InputTextBox.Text);
             OutputTextBox.Text = result;
 
@@ -40,20 +40,18 @@ namespace WpfApp1
 
         private void EncryptRadioButton_Checked(object sender, RoutedEventArgs e)
         {
-            g = true;
-            if (EncryptButton != null && g)
+            if (EncryptButton != null)
             {
                 EncryptButton.Content = "Шифровать";
-                EncryptionManager.IsEncry = g;
+                EncryptionManager.IsEncry = true;
             }
 
         }
 
         private void DecryptRadioButton_Checked(object sender, RoutedEventArgs e)
         {
-            g = false;
             EncryptButton.Content = "Дешифровать";
-            EncryptionManager.IsEncry = g;
+            EncryptionManager.IsEncry = false;
 
         }
 

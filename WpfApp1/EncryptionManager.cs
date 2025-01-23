@@ -17,7 +17,7 @@ namespace WpfApp1
         {
             _encryptionManager = new Dictionary<string, EncryptionMethod>()
             {
-                {"Цезарь", EncryptionAlgorithms.vibor}
+                {"Цезарь", ChoiceCeasar}
             };
 
         }
@@ -30,5 +30,16 @@ namespace WpfApp1
             return method(key,code,IsEncry);
 
         }
+
+        private string ChoiceCeasar(string key, string code, bool vibor)
+        {
+            if (vibor)
+                return EncryptionAlgorithms.En_Ceasar(key, code);
+            else
+                return EncryptionAlgorithms.De_Ceaser(key, code);
+        }
+        
+
+        
     }
 }
